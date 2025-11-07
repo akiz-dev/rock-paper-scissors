@@ -16,6 +16,19 @@ function getComputerChoice() {
 console.log(getComputerChoice());
 
 // human choice
+ let humanChoice = prompt("Chose one: 'rock', 'paper', 'scissors'");
+
 function getHumanChoice() {
+    return humanChoice;
+}
+
+console.log(getHumanChoice());
+
+//score
+let humanScore = 0;
+let computerScore = 0;
+
+//round
+function playRound(){
      
 }
