@@ -1,13 +1,21 @@
+// computer choice
 function getComputerChoice() {
-   const randomNumber = Math.random();
+     const computerChoice = Math.random();
 
-   if (randomNumber < 1 / 3) {
-        return "rock";
-   } else if (randomNumber < 2 / 3) {
-        return "paper";
-    } else {
-        return "scissors"
-   }
+          if (computerChoice < 0.333) {
+               return "rock";
+          } else if (computerChoice < 0.666 ) {
+               return "paper";
+          } else {
+               return "scissors";
+          }
+
+     return computerChoice;
 }
 
 console.log(getComputerChoice());
+
+// human choice
+function getHumanChoice() {
+     
+}
