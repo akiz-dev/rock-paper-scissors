@@ -1,16 +1,19 @@
-// computer choice func
-function getComputerChoice() {
-     const choices = ["rock", "paper", "scissors"];
-     const computerChoice = Math.floor(Math.random() * choices.length);
-     return choices[computerChoice];
-}
-console.log(getComputerChoice())
+// computer choice
+function getComputerChoice(){
+     const computerChoices = ["Rock", "Paper", "Scissors"];
 
-// human choice func
-function getHumanChoice() {
-     const humanChoice = prompt("Type only one: 'Rock', 'Paper' or 'Scissors'");
+     const randomNumber = Math.floor(Math.random() * 3);
 
-     return humanChoice;
+     return computerChoices[randomNumber];
 }
-console.log(getHumanChoice());
-// getHumanChoice();
+
+console.log(getComputerChoice());
+
+//human choice
+function getHumanChoice(){
+     const inputHumanChoice = prompt("Chose: 'Paper', 'Rock' or ''Scissors").toLowerCase();
+
+     return inputHumanChoice;
+}
+
+console.log(getHumanChoice())
