@@ -7,13 +7,6 @@ function getComputerChoice(){
      return choices[randomNumber];
 }
 
-//human choice
-function getHumanChoice(){
-     const inputHumanChoice = prompt("Chose: 'Paper', 'Rock' or ''Scissors").toLowerCase();
-
-     return inputHumanChoice;
-}
-
 //scores
 let humanScore = 0;
 let computerScore = 0;
@@ -23,39 +16,43 @@ function playRound(humanChoice,computerChoice){
 
     if (humanChoice === computerChoice) {
           console.log(`It's a tie! Both chose ${humanChoice}.`);
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
     } else if (
           humanChoice === "rock" && computerChoice === "scissors" || 
           humanChoice === "paper" && computerChoice === "rock" ||
           humanChoice === "scissors" && computerChoice === "paper"
     ) {
-          humanScore++;
           console.log(`You Won! ${humanChoice} beats ${computerChoice}`);
+          humanScore++;
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
     } else {
           console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
           computerScore++;
-    }
-
-    console.log(`SCORE: Computer - ${computerScore} / Human - ${humanScore}`)
-
-}
-
-function playGame() {
-     for (let round = 0; round <= 5; round++) {
-          console.log(`\nRound ${round}:`);
-          const humanSelection = getHumanChoice();
-          const computerSelection = getComputerChoice();
-
-          playRound(humanSelection, computerSelection);
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
      }
 
-     if (humanScore > computerScore) {
-        console.log(`\nYou win the game! You'r points: ${humanScore} - Computer points: ${computerScore}`);
-      } else if (humanScore < computerScore) {
-        console.log(`\nYou lose the game! Computer points: ${computerScore} - You'r points: ${humanScore}`);
-      } else {
-        console.log(`\nThe game is a tie! Computer points: ${computerScore} - You'r points: ${humanScore}`);
-    }
+    console.log(`SCORE: Human - ${humanScore} / Computer - ${computerScore}`)
 }
 
-// Start the game
-playGame();
+// show scores Html
+let totalScoresDiv = document.querySelector("#totalScores > p");
+
+// get buttons
+let rockButton = document.querySelector("#rockBtn");
+let paperButton = document.querySelector("#paperBtn");
+let scissorsButton = document.querySelector("#scissorsBtn");
+
+rockButton.addEventListener("click", function() {
+     // playRound(rockButton.textContent.toLowerCase(), getComputerChoice());
+     playRound("rock", getComputerChoice());
+});
+
+paperButton.addEventListener("click", function() {
+     // playRound(paperButton.textContent.toLowerCase(), getComputerChoice());
+     playRound("paper", getComputerChoice());
+});
+
+scissorsButton.addEventListener("click", function (){
+     // playRound(scissorsButton.textContent.toLowerCase(), getComputerChoice());
+     playRound("scissors", getComputerChoice());
+});

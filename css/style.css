@@ -1,0 +1,41 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 100%;
+    text-align: center;
+    background-color: #f9f9f9;
+    padding: 2%;
+}
+
+.buttons-choice {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap:6px;
+    width: 100px;
+    height: 100px;
+    margin:15px 10px;
+    border: 1px solid;
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+
+    background-color: #fff;
+    transition: 0.2s ease-in;
+}
+
+.buttons-choice:hover {background-color: #f7f7f7;}
+
+.buttons-choice i {
+    transition: 0.2s ease-in-out;
+    font-size: 24px;
+}
+
+.buttons-choice:hover i {
+    color: green;
+}
