@@ -66,10 +66,10 @@ function resetElWinner() {
      winnerEl.textContent = '';
 }
 
-// show scores Html
+// show scores Html element
 let totalScoresDiv = document.querySelector("#totalScores > p");
 
-//show winner
+//show winner element
 let winnerEl = document.querySelector('#player-winner > h2');
 
 //show rounds
