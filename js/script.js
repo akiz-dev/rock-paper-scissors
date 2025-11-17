@@ -16,7 +16,7 @@ function playRound(humanChoice,computerChoice){
 
     if (humanChoice === computerChoice) {
           showRounds.textContent = `It's a tie! Both chose ${humanChoice}.`;
-          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
     } else if (
           humanChoice === "rock" && computerChoice === "scissors" || 
           humanChoice === "paper" && computerChoice === "rock" ||
@@ -24,11 +24,11 @@ function playRound(humanChoice,computerChoice){
     ) {
           showRounds.textContent = `You Won! ${humanChoice} beats ${computerChoice}`;
           humanScore++;
-          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
     } else {
           showRounds.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
           computerScore++;
-          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
+          totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
      }
 
     console.log(`SCORE: Human - ${humanScore} / Computer - ${computerScore}`);   
