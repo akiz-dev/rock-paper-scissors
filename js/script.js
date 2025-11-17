@@ -43,16 +43,13 @@ let paperButton = document.querySelector("#paperBtn");
 let scissorsButton = document.querySelector("#scissorsBtn");
 
 rockButton.addEventListener("click", function() {
-     // playRound(rockButton.textContent.toLowerCase(), getComputerChoice());
      playRound("rock", getComputerChoice());
 });
 
 paperButton.addEventListener("click", function() {
-     // playRound(paperButton.textContent.toLowerCase(), getComputerChoice());
      playRound("paper", getComputerChoice());
 });
 
 scissorsButton.addEventListener("click", function (){
-     // playRound(scissorsButton.textContent.toLowerCase(), getComputerChoice());
      playRound("scissors", getComputerChoice());
 });
