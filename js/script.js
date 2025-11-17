@@ -15,27 +15,65 @@ let computerScore = 0;
 function playRound(humanChoice,computerChoice){
 
     if (humanChoice === computerChoice) {
-          console.log(`It's a tie! Both chose ${humanChoice}.`);
+          showRounds.textContent = `It's a tie! Both chose ${humanChoice}.`;
           totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
     } else if (
           humanChoice === "rock" && computerChoice === "scissors" || 
           humanChoice === "paper" && computerChoice === "rock" ||
           humanChoice === "scissors" && computerChoice === "paper"
     ) {
-          console.log(`You Won! ${humanChoice} beats ${computerChoice}`);
+          showRounds.textContent = `You Won! ${humanChoice} beats ${computerChoice}`;
           humanScore++;
           totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
     } else {
-          console.log(`You Lose! ${computerChoice} beats ${humanChoice}`);
+          showRounds.textContent = `You Lose! ${computerChoice} beats ${humanChoice}`;
           computerScore++;
           totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`
      }
 
-    console.log(`SCORE: Human - ${humanScore} / Computer - ${computerScore}`)
+    console.log(`SCORE: Human - ${humanScore} / Computer - ${computerScore}`);   
+
+     //show player winner
+     if (humanScore === 5 && humanScore > computerScore) {
+          winnerEl.textContent = `You win! ${humanScore} - ${computerScore}`;
+                  
+          setTimeout( () => {
+               resetElWinner();
+               console.clear();
+               humanScore = 0;
+               computerScore = 0;  
+               totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
+               showRounds.textContent = '';
+
+          }, "5000");
+          
+     } else if ( computerScore === 5 && computerScore > humanScore) {
+          winnerEl.textContent = `Computer win! ${computerScore} - ${humanScore}`;
+         
+          setTimeout( () => {
+               resetElWinner();
+               console.clear();
+               humanScore = 0;
+               computerScore = 0;  
+               totalScoresDiv.textContent = `Human Score: ${humanScore} - Computer Score: ${computerScore}`;
+               showRounds.textContent = '';
+
+          }, "5000");
+     }
+}
+
+function resetElWinner() {
+     winnerEl.textContent = '';
 }
 
 // show scores Html
 let totalScoresDiv = document.querySelector("#totalScores > p");
+
+//show winner
+let winnerEl = document.querySelector('#player-winner > h2');
+
+//show rounds
+let showRounds = document.querySelector('#showRounds');
 
 // get buttons
 let rockButton = document.querySelector("#rockBtn");
